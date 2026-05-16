@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
   build:
@@ -24,22 +23,12 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          cache: true
-
-      - name: Show Flutter version
-        run: flutter --version
 
       - name: Get dependencies
         run: flutter pub get
 
-      - name: Analyze project (optional but helpful)
-        run: flutter analyze || true
-
-      - name: Clean build
-        run: flutter clean
-
       - name: Build APK
-        run: flutter build apk --release --no-tree-shake-icons
+        run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
