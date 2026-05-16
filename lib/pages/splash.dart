@@ -67,7 +67,18 @@ class _SplashState extends State<Splash> {
 
         if (!mounted) return;
 
-        Navigator.of(context).pushReplacementNamed('/layout');
+        Navigator.of(context).pushReplacement(
+  MaterialPageRoute(
+    builder: (_) => Scaffold(
+      body: Center(
+        child: Text(
+          "APK OPENED SUCCESSFULLY",
+          style: TextStyle(fontSize: 20),
+        ),
+      ),
+    ),
+  ),
+);
       } else {
         if (!mounted) return;
 
